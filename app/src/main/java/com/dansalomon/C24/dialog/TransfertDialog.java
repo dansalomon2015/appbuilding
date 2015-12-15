@@ -30,7 +30,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 /**
- * Created by Dan Salomon on 25/10/2015.
+ * Dialog Created by Dan Salomon on 25/10/2015.
  */
 public class TransfertDialog extends DialogFragment {
 
@@ -39,27 +39,6 @@ public class TransfertDialog extends DialogFragment {
     private String[] country;
 
     public Dialog onCreateDialog (Bundle SavedInstaceState){
-
-
-        JSONObject json = null;
-        String str = "";
-        HttpResponse response;
-        HttpClient myClient = new DefaultHttpClient();
-        HttpPost myConnection = new HttpPost("http://compare24.livehost.fr/c24service.php?action=liste_pays");
-
-        try {
-            response = myClient.execute(myConnection);
-
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder((getActivity()));
@@ -96,9 +75,7 @@ public class TransfertDialog extends DialogFragment {
             }
         });
 
-        Dialog dialog = builder.create();
-
-        return  dialog;
+        return builder.create();
     }
 
 
