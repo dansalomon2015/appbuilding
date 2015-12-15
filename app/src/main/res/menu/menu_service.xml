@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Service">
+
+
+    <item android:id="@+id/proposer"
+        android:title="@string/proposer_comparaison"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/comparison_du_jour"
+        android:title="@string/compraison_du_jour"
+        android:orderInCategory="200"
+        android:icon="@drawable/compare"
+        app:showAsAction="always" />
+
+
+</menu>
