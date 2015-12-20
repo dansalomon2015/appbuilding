@@ -7,27 +7,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
-
 import com.dansalomon.C24.R;
 import com.dansalomon.C24.Service;
 import com.dansalomon.C24.Transfer;
+import com.dansalomon.C24.utils.JSONfunctions;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 
-import java.io.IOException;
 
 /**
  * Dialog Created by Dan Salomon on 25/10/2015.
@@ -36,15 +27,18 @@ public class TransfertDialog extends DialogFragment {
 
     final String[] country_names = {"Ghana","Tchad","Congo","France","Cameroun","Nigeria","RCA","Guinnée Konakry","Guinnée Bisseau","Allemagne","Benin"};
 
-    private String[] country;
+
 
     public Dialog onCreateDialog (Bundle SavedInstaceState){
 
+        super.onCreate(SavedInstaceState);
+
+        List<String> country = ((Service)getActivity()).getCountry();
 
         AlertDialog.Builder builder = new AlertDialog.Builder((getActivity()));
         builder.setTitle("Transfert d'argent");
 
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>((this.getActivity().getApplicationContext()),R.layout.item_country_textview,country_names);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>((this.getActivity().getApplicationContext()),R.layout.item_country_textview,country);
 
 
         LayoutInflater inflater = (getActivity()).getLayoutInflater();
@@ -77,6 +71,5 @@ public class TransfertDialog extends DialogFragment {
 
         return builder.create();
     }
-
 
 }
