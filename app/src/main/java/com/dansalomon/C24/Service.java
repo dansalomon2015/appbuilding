@@ -207,14 +207,27 @@ public class Service extends ActionBarActivity {
 
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // Create a progressdialog
+            mProgressDialog = new ProgressDialog(Service.this);
+            // Set progressdialog title
+            mProgressDialog.setMessage("Chargement...");
+            mProgressDialog.setIndeterminate(false);
+            // Show progressdialog
+            mProgressDialog.show();
+        }
+
+
+
+        @Override
         protected Void doInBackground(Void... params) {
+
             country = new ArrayList<String>();
             // Retrieve JSON Objects from the given URL address
-            jsonObject = JSONfunctions.getJSONfromURL("http://compare24.livehost.fr/c24service.php?action=liste_pays");
+            jsonarray = JSONfunctions.getArrayfromURL("http://compare24.livehost.fr/c24service.php?action=liste_pays");
 
             try {
-                // Locate the array name in JSON
-                jsonarray = jsonObject.getJSONArray("");
 
                 for (int i = 0; i < jsonarray.length(); i++) {
                     jsonObject = jsonarray.getJSONObject(i);
@@ -228,17 +241,10 @@ public class Service extends ActionBarActivity {
             return null;
         }
 
-
         @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // Create a progressdialog
-            mProgressDialog = new ProgressDialog(Service.this);
-            // Set progressdialog title
-            mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
-            // Show progressdialog
-            mProgressDialog.show();
+        protected void onPostExecute(Void args) {
+            // Close the progressdialog
+            mProgressDialog.dismiss();
         }
 
     }
