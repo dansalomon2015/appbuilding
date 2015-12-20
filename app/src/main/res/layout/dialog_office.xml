@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/editAmountMobile"
             android:layout_gravity="center_vertical"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:singleLine="true" />
     </LinearLayout>
 
 

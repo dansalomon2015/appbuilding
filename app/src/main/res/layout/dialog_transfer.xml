@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/editCountry"
             android:hint="Séléctionner un pays"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:singleLine="true" />
 
     </LinearLayout>
 
