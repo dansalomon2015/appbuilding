@@ -196,6 +196,13 @@ public class Service extends ActionBarActivity {
         return  this.country;
     }
 
+    @Override
+    public void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        //onRefresh();
+    }
+
     public class DownloadJSON extends AsyncTask<Void, Void ,Void>{
 
 
