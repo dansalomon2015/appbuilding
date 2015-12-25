@@ -37,6 +37,8 @@ public class Service extends ActionBarActivity {
     private JSONObject jsonObject;
     private JSONArray jsonarray;
     private ProgressDialog mProgressDialog;
+    private Double amount;
+    private String dest;
 
 
     @Override
@@ -201,6 +203,22 @@ public class Service extends ActionBarActivity {
         // TODO Auto-generated method stub
         super.onResume();
         //onRefresh();
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
     }
 
     public class DownloadJSON extends AsyncTask<Void, Void ,Void>{

@@ -23,7 +23,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editAmount"
+            android:id="@+id/transferAmount"
             android:layout_gravity="center_vertical"
             android:inputType="number|numberDecimal" />
     </LinearLayout>
@@ -48,7 +48,7 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editCountry"
+            android:id="@+id/transferCountry"
             android:hint="Séléctionner un pays"
             android:layout_gravity="center_vertical"
             android:singleLine="true" />

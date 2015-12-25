@@ -7,14 +7,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+
 import com.dansalomon.C24.R;
 import com.dansalomon.C24.Service;
 import com.dansalomon.C24.Transfer;
+import com.dansalomon.C24.TransferActivity;
 import com.dansalomon.C24.utils.JSONfunctions;
 
 import java.util.List;
@@ -24,9 +28,6 @@ import java.util.List;
  * Dialog Created by Dan Salomon on 25/10/2015.
  */
 public class TransfertDialog extends DialogFragment {
-
-    final String[] country_names = {"Ghana","Tchad","Congo","France","Cameroun","Nigeria","RCA","Guinnée Konakry","Guinnée Bisseau","Allemagne","Benin"};
-
 
 
     public Dialog onCreateDialog (Bundle SavedInstaceState){
@@ -42,9 +43,8 @@ public class TransfertDialog extends DialogFragment {
 
 
         LayoutInflater inflater = (getActivity()).getLayoutInflater();
-
-        View view = inflater.inflate(R.layout. dialog_transfer, null);
-        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) view.findViewById(R.id.editCountry);
+        final View view = inflater.inflate(R.layout. dialog_transfer, null);
+        final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) view.findViewById(R.id.transferCountry);
 
         autoCompleteTextView.setThreshold(1);
         autoCompleteTextView.setAdapter(adapter);
@@ -65,10 +65,23 @@ public class TransfertDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                startActivity(new Intent(getActivity(),Transfer.class));
+                EditText editText = (EditText) view.findViewById(R.id.transferAmount);
+                Double amount = Double.parseDouble(editText.getText().toString());
+                String dest = autoCompleteTextView.getText().toString();
+                ((Service)getActivity()).setAmount(amount);
+                ((Service)getActivity()).setDest(dest);
+                editText.setText("");
+                autoCompleteTextView.setText("");
+
+                Log.d("TAG","hello "+ dest+"   fdffdf :"+amount);
+
+                Intent transfer = new Intent (getActivity(),TransferActivity.class );
+                transfer.putExtra("amount", amount);
+                transfer.putExtra("dest", dest);
+                startActivity(transfer);
             }
         });
-
+        super.onCreate(SavedInstaceState);
         return builder.create();
     }
 

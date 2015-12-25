@@ -4,37 +4,46 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.dansalomon.C24.WelcomeActivity"
+            android:name=".WelcomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dansalomon.C24.Transfer"
-            android:parentActivityName="com.dansalomon.C24.Service">
+            android:name=".Transfer"
+            android:parentActivityName=".Service">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dansalomon.C24.Service" />
         </activity>
-        <activity android:name="com.dansalomon.C24.Service"></activity>
+        <activity android:name=".Service" />
         <activity
-            android:name="com.dansalomon.C24.Mobile"
-            android:parentActivityName="com.dansalomon.C24.Service">
+            android:name=".Mobile"
+            android:parentActivityName=".Service">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dansalomon.C24.Service" />
         </activity>
         <activity
-            android:name="com.dansalomon.C24.OfficeHome"
-            android:parentActivityName="com.dansalomon.C24.Service">
+            android:name=".OfficeHome"
+            android:parentActivityName=".Service">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dansalomon.C24.Service" />
+        </activity>
+        <activity
+            android:name=".TransferActivity"
+            android:parentActivityName=".Service">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dansalomon.C24.Service" />
