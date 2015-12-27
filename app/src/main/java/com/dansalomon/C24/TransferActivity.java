@@ -32,13 +32,13 @@ public class TransferActivity extends ActionBarActivity{
     private String dest;
     private Double amount;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfert);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_service);
         setSupportActionBar(toolbar);
-
 
         String destination = getIntent().getStringExtra("dest");
         getSupportActionBar().setTitle("Destination : "+destination);
@@ -103,7 +103,6 @@ public class TransferActivity extends ActionBarActivity{
         public void rangeArray(JSONArray jsonArray){
 
             JSONObject c = new JSONObject();
-
 
             for(int i = 0; i < jsonarray.length(); i++){
 
