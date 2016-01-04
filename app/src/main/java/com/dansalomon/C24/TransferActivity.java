@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.bumptech.glide.Glide;
 import com.dansalomon.C24.Adapter.TransferListAdapter;
 import com.dansalomon.C24.classes.TransferItem;
 import com.dansalomon.C24.utils.JSONfunctions;
